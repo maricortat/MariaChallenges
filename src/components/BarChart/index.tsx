@@ -27,10 +27,10 @@ const BarChart= (props : any ) => {
                 type = "bar"
                 height = "240"
             />
-            {props.usertext && <p> My text is {props.usertext} </p>}  
+            {props.usertext && <p>  children here {JSON.stringify(props.usertext)} </p> }
         </div>
 
     );
   
 }
- export default BarChart;
+ export default BarChart ;

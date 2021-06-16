@@ -4,6 +4,7 @@ import Footer from "components/Footer";
 import BarChart from "components/BarChart";
 import DonutsChart from "components/DonutsChart";
 import Formulario from "components/Formulario/index";
+import LineChart from "components/LineChart/index";
 
 const App = () =>  {
    const  [usertext, updateText] = useState({}); 
@@ -19,19 +20,13 @@ const App = () =>  {
           <div className="col-sm-12">
           <Formulario updateText ={updateText}/>
           </div>
-        </div>
+      </div>
       <div className=" row px-3">
         <div className=" col-sm-12">
-          <h5 className="text-center text-secondary"> Bar Chart</h5>
-          <BarChart usertext = {usertext}/>
+          <h5 className="text-center text-secondary"> Line Chart</h5>
+          <LineChart usertext = {usertext} />
         </div>
-        <div className=" col-sm-12">
-          <h5 className="text-center text-secondary"> Donuts Chart</h5>
-          <DonutsChart/>
-        </div>
-      </div>
-
-   
+      </div>   
     </div>
     <Footer/>
   </>

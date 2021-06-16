@@ -5,6 +5,10 @@ const Formulario = (props: any) => {
     const [usertext, updateText] = useState("");
     
     const onTextChange =  ( event:any ) => {
+        
+        const s: string = `[${JSON.stringify(event.target.value)}]`;
+        const b: any  = JSON.parse(s);
+        console.log(b)
         switch(event.target.id){
             case "localtext":
                 updateText(event.target.value);
@@ -23,11 +27,11 @@ const Formulario = (props: any) => {
     return(
         <Form onSubmit = {onSubmitClick}>
              <Form.Group controlId="exampleForm.ControlTextarea1">
-                 <Form.Control value="usertext" id="localtext"
-                  as="textarea" onChange={onTextChange} rows={3}  />
+                 <Form.Control  defaultValue= {"usertext"}  id="localtext"
+                  as="textarea" onChange={onTextChange}  rows={3}  />
             </Form.Group>
             <Button   type="submit">
-                Submit
+                Generate Chart
             </Button>
         </Form>
            
