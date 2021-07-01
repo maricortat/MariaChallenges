@@ -7,7 +7,7 @@ import Formulario from "components/Formulario/index";
 import LineChart from "components/LineChart/index";
 
 const App = () =>  {
-   const  [usertext, updateText] = useState({}); 
+   const  [usertext, updateText] = useState(""); 
     
   return (
   <>

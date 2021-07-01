@@ -19,14 +19,14 @@ const Formulario = (props: any) => {
         event.preventDefault();
         console.log (usertext);
         
-        props.updateText ({usertext});
+        props.updateText (usertext);
 
     }
    
 
     return(
         <Form onSubmit = {onSubmitClick}>
-             <Form.Group controlId="exampleForm.ControlTextarea1">
+             <Form.Group >
                  <Form.Control  defaultValue= {"usertext"}  id="localtext"
                   as="textarea" onChange={onTextChange}  rows={3}  />
             </Form.Group>

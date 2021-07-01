@@ -16,46 +16,62 @@ interface State{
     begin? : number,
     end?: number,
 }
-const BarChart= (props : any ) => {
+
     
-    const [usertext, uptadeText] = useState<seriesData[]>([]);
+    interface Series{
+        
+        name :string;
+        data: number[]
+    }
 
-
-    useEffect(()=>{
-        function updateText(){
-          
-        }
-    },[])
-
-    const options ={
-        plotOptions:{
-            bar:{
-                horizontal: true,
+    const parsingSeries = (input: string) : Series | null => {
+           try {
+                return JSON.parse(input)
+            } catch (e) {
+                console.error("The input provided is not a valid JSON", e)
             }
-        },
+            return null
+    }
 
-    };
-    
-    const chartData = {        
-        series: [{usertext}],
+    interface LineChartProps{
+        usertext:string,
+    }
 
+    const LineChart = ({usertext} : LineChartProps) =>{
+     
+        const chartData = parsingSeries(usertext)
+        
+        useEffect(()=>{
+            function updateText(){
+              
+            }
+        },[])
     
-    }; 
-      
+        const options ={
+            plotOptions:{
+                bar:{
+                    horizontal: true,
+                }
+            },
+    
+        };
+        
+       
+        return(
+              <div>
+                  {usertext ? <Chart
+                      options ={options}
+                      series = {[chartData]}
+                      type = "line"
+                      height = "240"
+                  />: <p> Unable to render the chart since the input is not a valid JSON</p>}
+                   {usertext && <p> My text is {usertext} </p>}
+              </div>          
+      );
+        
+          
+    }
+
   
       
-  return(
-        <div>
-            <Chart
-                options ={options}
-                series = {chartData.series }
-                type = "line"
-                height = "240"
-            />
-            {usertext && <p> My text is {JSON.stringify(usertext)}  </p>}  
-            
-        </div>          
-    );
-  
-}
- export default BarChart;
+ export default LineChart;
