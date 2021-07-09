@@ -1,8 +1,8 @@
 import NavBar from "components/NavBar";
 import {useState} from 'react';
 import Footer from "components/Footer";
-import BarChart from "components/BarChart";
-import DonutsChart from "components/DonutsChart";
+//import BarChart from "components/BarChart";
+//import DonutsChart from "components/DonutsChart";
 import Formulario from "components/Formulario/index";
 import LineChart from "components/LineChart/index";
 
